@@ -1,7 +1,7 @@
 #pragma once
 #include "stdafx.h"
 
-class File {
+class FileReaderWritter {
 	string _name;
 	//ofstream * _fout = nullptr ;
 	FILE * _fout;
@@ -16,7 +16,7 @@ public:
 		return _fin;
 	}
 
-	File(char f) {
+	FileReaderWritter(char f) {
 	_name = f;
 	OpenInFile();
 	OpenOutFile();
@@ -30,8 +30,10 @@ public:
 		//fin >> buff; // считали первое слово из файла
 		//cout << buff << endl; // напечатали это слово
 
-		ifstream  *fin = nullptr;
-		fin->getline(buff, 10); // считали строку из файла
+					//ifstream  *fin = nullptr;
+					//fin->getline(buff, 10); // считали строку из файла
+		fgets(buff ,10, _fout);
+
 		//_fin.close(); // закрываем файл
 
 		//delete
@@ -78,8 +80,8 @@ public:
 	//}
 
 	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	//File(string name) { _name = name; }
-	~File() {
+	//FileReaderWritter(string name) { _name = name; }
+	~FileReaderWritter() {
 		fclose(_fout);
 		fclose(_fin);
 	}

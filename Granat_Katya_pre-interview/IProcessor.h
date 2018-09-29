@@ -5,11 +5,18 @@
 //interface
 class IProcessor {
 protected:
-//	File * _file;
+	string intermediateResult;
+	//string finalResult;
+	int count = 0;
+//	FileReaderWritter * _file;
 public:
+
 	IProcessor() {}
-	//IProcessor(File * file) {_file = file;}
-	virtual string Action(string str) = 0;
+	int GetCount() {
+		return count;
+	}
+	//IProcessor(FileReaderWritter * file) {_file = file;}
+	virtual string Action(string str, string ch ="0") = 0;
 };
 
 
@@ -18,7 +25,7 @@ public:
 class ArgumentA : public IProcessor {
 public:
 
-	virtual string Action(string str) {
+	virtual string Action(string str, string ch = "0") {
 		
 		return str;
 	}
@@ -28,9 +35,8 @@ public:
 class ArgumentB : public IProcessor {
 public:
 	ArgumentB() {}
-	/*ArgumentB(File  &file) {
-		_file = &file; }*/
-	virtual string Action(string str){
+	
+	virtual string Action(string str, string ch = "0"){
 
 
 		//string str;
@@ -47,43 +53,51 @@ public:
 
 	}
 
-	string GetStringWithoutSpaces(string str) {
-		for (int i = 0; i < str.size();i++) {
-		
-		}
-	}
-
 };
 
 
 class ArgumentC : public IProcessor {
 public:
 	ArgumentC() {}
-	/*ArgumentC(File  &file) {
-		_file = &file;
-	}*/
-	virtual string Action(string ch) {
-		int count = 0;
+	
+
+
+	virtual string Action(string str, string ch ) {
+		
 
 	//	while (1) {
-		string str;
+//		string str;
 		//str = _file->Read();
 
+		//str.erase(remove(srt.begin(),str.end(), ch.c_str()), str.end());
+		//str.erase(remove(str.begin(), str.end(), 'a'), str.end());
 
+		
+
+		for (int i = 0; i < str.size();i++) {
+			if (str[i] == ch[0]) {
+				count++;
+			}
+		}
+
+		cout << count << endl;
+		/*while () {
 			if (str.find(ch)) {
 				count++;
 
 			}
+		}*/
 	//	}
 
 		//example_out.txt
 
-		ofstream _fout2("example_out.txt");
+		/*ofstream _fout2("example_out.txt");
 		_fout2 << ch;
-		_fout2.close();
+		_fout2.close();*/
 
-
-		return str;
+		//finalResult = finalResult.(count);
+		
+		return "";
 
 	}
 
