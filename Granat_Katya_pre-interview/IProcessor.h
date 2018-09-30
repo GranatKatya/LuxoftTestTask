@@ -7,16 +7,16 @@ class IProcessor {
 protected:
 	string intermediateResult;
 	//string finalResult;
-	int count = 0;
+	
 //	FileReaderWritter * _file;
+	vector<string>sortWords;
 public:
 
 	IProcessor() {}
-	int GetCount() {
-		return count;
-	}
+	virtual string GetCount() = 0;
+	
 	//IProcessor(FileReaderWritter * file) {_file = file;}
-	virtual string Action(string str, string ch ="0") = 0;
+	virtual string Action(string str, string ch ="") = 0;
 };
 
 
@@ -24,9 +24,13 @@ public:
 //realization 
 class ArgumentA : public IProcessor {
 public:
-
-	virtual string Action(string str, string ch = "0") {
+	virtual string GetCount() {}
+	virtual string Action(string str, string ch = "") {
 		
+		if (1) {
+			sortWords.push_back(str);
+		}
+
 		return str;
 	}
 
@@ -36,7 +40,8 @@ class ArgumentB : public IProcessor {
 public:
 	ArgumentB() {}
 	
-	virtual string Action(string str, string ch = "0"){
+	virtual string GetCount() { return ""; }
+	virtual string Action(string str, string ch = ""){
 
 
 		//string str;
@@ -57,10 +62,14 @@ public:
 
 
 class ArgumentC : public IProcessor {
+	int count = 0;
 public:
 	ArgumentC() {}
 	
-
+	virtual string GetCount() {
+		return to_string(count);
+		//return finalResult;
+	}
 
 	virtual string Action(string str, string ch ) {
 		

@@ -72,12 +72,15 @@ public:
 		 
 	}
 
-	//void Write(string str) {
+	void Write(string str) {
 	//	
 	//	 // создаём объект класса ofstream и связываем его с файлом cppstudio.txt
 	//	*_fout << str;   // запись строки в файл
 	//	 // закрываем файл
-	//}
+		
+		//fputs(iprocessor.Action(str, "s").c_str(), _fin);
+		fputs(str.c_str(), _fin);
+	}
 
 	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	//FileReaderWritter(string name) { _name = name; }
