@@ -1,9 +1,10 @@
 
 #include "stdafx.h"
 
-Application::Application(char processorType, char processorArgument) {
+Application::Application(char processorType, char processorArgument, string fileName) {
 	_processorType = processorType;
 	_processorArgument = processorArgument;
+	_fileName = fileName;
 }
 
 
@@ -12,6 +13,7 @@ void Application:: Execute() {
 	iprocessor = &factory.SetGetIProcessors(_processorType, _processorArgument);
 	char buffer[10];
 
+	file->OpenInFile(_fileName);
 	if (file->GetFile() == NULL) perror("Ошибка открытия файла");
 	else
 	{

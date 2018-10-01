@@ -8,8 +8,7 @@ void ArgumentA::addToContainer(string str) {
 	vector<string>::iterator it = sortWords.begin();
 	for (int i = 0; i < sortWords.size(); i++) {
 		if (strcmp(str.c_str(), sortWords[i].c_str()) < 0) {
-			//s = sortWords[i];
-			//sortWords[i].push_back(str);
+			
 			sortWords.insert(it + i, str);
 			return;
 		}

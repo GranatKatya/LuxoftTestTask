@@ -9,7 +9,7 @@ FILE * FileReaderWritter::GetFileToWrite() {
 }
 
 FileReaderWritter::FileReaderWritter() {
-	OpenInFile();
+	//OpenInFile(_name);
 	OpenOutFile();
 }
 

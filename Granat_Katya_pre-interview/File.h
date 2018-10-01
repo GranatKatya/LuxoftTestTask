@@ -4,8 +4,10 @@
 class FileReaderWritter {
 	FILE * _fout;
 	FILE *_fin;
+	//string _name;
 public:
 
+	//string GetName() { return _name; }
 	FILE * GetFile();
 	FILE * GetFileToWrite();
 
@@ -14,7 +16,7 @@ public:
 	string Read();
 
 
-	void OpenInFile(string name = "example.txt") {
+	void OpenInFile(string name ) {
 
 		const char * a = name.c_str();
 		_fin = fopen(a, "r");
