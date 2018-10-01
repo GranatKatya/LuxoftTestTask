@@ -17,7 +17,7 @@ public:
 	virtual string GetFinalResult() = 0;
 	
 	//IProcessor(FileReaderWritter * file) {_file = file;}
-	virtual string Action(string str, string ch ="") = 0;
+	virtual string Action(string str, char ch = ' ') = 0;
 };
 
 
@@ -41,7 +41,7 @@ public:
 		}
 		sortWords.push_back(str);
 	}
-	virtual string Action(string str, string ch = "") {
+	virtual string Action(string str, char ch = ' ') {
 
 		string word;
 		//int *p = std::find (myints, myints+4, 30);
@@ -98,7 +98,7 @@ public:
 	ArgumentB() {}
 	
 	virtual string GetFinalResult() { return ""; }
-	virtual string Action(string str, string ch = ""){
+	virtual string Action(string str, char ch = ' '){
 
 
 		//string str;
@@ -129,7 +129,7 @@ public:
 		//return finalResult;
 	}
 
-	virtual string Action(string str, string ch ) {
+	virtual string Action(string str, char ch ) {
 		
 
 	//	while (1) {
@@ -142,7 +142,7 @@ public:
 		
 
 		for (int i = 0; i < str.size();i++) {
-			if (str[i] == ch[0]) {
+			if (str[i] == ch) {
 				count++;
 			}
 		}
