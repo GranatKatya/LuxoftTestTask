@@ -2,22 +2,20 @@
 #include "stdafx.h"
 
 class FileReaderWritter {
-	string _name;
-	//ofstream * _fout = nullptr ;
+	//string _fileName;
 	FILE * _fout;
-	//ifstream *_fin = nullptr;
 	FILE *_fin;
 public:
 
 	FILE * GetFile() {
-		return _fout;
-	}
-	FILE * GetFileToWrite() {
 		return _fin;
 	}
+	FILE * GetFileToWrite() {
+		return _fout;
+	}
 
-	FileReaderWritter(char f) {
-	_name = f;
+	FileReaderWritter() {
+	//_fileName = fileName;
 	OpenInFile();
 	OpenOutFile();
 	}
@@ -25,61 +23,34 @@ public:
 	string Read() {
 		
 		char buff[10]; // буфер промежуточного хранения считываемого из файла текста
-		//ifstream fin(_name); // открыли файл для чтения
+		fgets(buff ,10, _fin);
 
-		//fin >> buff; // считали первое слово из файла
-		//cout << buff << endl; // напечатали это слово
-
-					//ifstream  *fin = nullptr;
-					//fin->getline(buff, 10); // считали строку из файла
-		fgets(buff ,10, _fout);
-
-		//_fin.close(); // закрываем файл
-
-		//delete
 		cout << buff << endl; // напечатали эту строку
 		string str(buff);
 		return str;
 	}
 
-	/*ifstream& GetInputStream() {
-		return *_fin;
-	}*/
+	void OpenInFile(string name = "example.txt") {
 
-	/*bool IsEof() {
-		
-			return  _fin->eof();
-
-	}*/
-
-
-
-	void OpenInFile(string _name = "cppstudio.txt") {
-
-		const char * a = _name.c_str();
-		//ifstream fin(_name, ios_base::in);
-		//_fin = move(&fin);
-		_fout = fopen(a , "r");
+		const char * a = name.c_str();
+		_fin = fopen(a , "r");
 	}
 
 	 
-	void OpenOutFile(string _name = "example_out.txt") {
-
-		const char * a = _name.c_str();
-		 // ofstream fout(_name,  ios_base::app | ios_base::trunc);
-		 //_fout =  move(&fout);
-		 _fin = fopen(a, "w");
+	void OpenOutFile(string name = "example_out.txt") {
+		const char * a = name.c_str();
+		 _fout = fopen(a, "w");
 		 
 	}
 
 	void Write(string str) {
-	//	
-	//	 // создаём объект класса ofstream и связываем его с файлом cppstudio.txt
-	//	*_fout << str;   // запись строки в файл
-	//	 // закрываем файл
-		
-		//fputs(iprocessor.Action(str, "s").c_str(), _fin);
-		fputs(str.c_str(), _fin);
+		fputs(str.c_str(), _fout);
+	}
+	void CloseInFile() {
+		fclose(_fin);
+	}
+	void CloseOutFile() {
+		fclose(_fout);
 	}
 
 	//!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -90,6 +61,6 @@ public:
 	}
 	
 
-	void SetName(string name) { _name = name; }
-	string GetName() { return _name; }
+	/*void SetName(string name) { _name = name; }
+	string GetName() { return _name; }*/
 };

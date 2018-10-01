@@ -36,6 +36,15 @@
     <ClInclude Include="IProcessorsTests.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FactoryTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ApplicationTest.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
