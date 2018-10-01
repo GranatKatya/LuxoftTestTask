@@ -21,22 +21,22 @@ public:
 	}
 	void actionTest() {
 		ArgumentA *a = new ArgumentA;
-		a->Action("a test1 very");
-		a->Action("very");
-		a->Action("long");
-		a->Action("string test2 +_)");
-		a->Action("(_+");
+		a->Action("a test1 very",' ');
+		a->Action("very", ' ');
+		a->Action("long", ' ');
+		a->Action("string test2 +_)", ' ');
+		a->Action("(_+", ' ');
 		assert(a->GetFinalResult() == "+_)(_+ a test1 test2 veryverylongstring");
-
+		cout << "good";
 	}
 	// 	
 	void GetFinalResultTest() {
 		ArgumentA *a = new ArgumentA;
-		a->Action("a test1 very");
-		a->Action("very");
-		a->Action("long");
-		a->Action("string test2 +_)");
-		a->Action("(_+");
+		a->Action("a test1 very", ' ');
+		a->Action("very", ' ');
+		a->Action("long", ' ');
+		a->Action("string test2 +_)", ' ');
+		a->Action("(_+", ' ');
 
 		string result = a->GetFinalResult();
 		//assert(c->GetFinalResult()  == result);
@@ -52,7 +52,7 @@ public:
 
 	void actionTest() {
 		ArgumentB *b = new ArgumentB;
-		string result = b->Action("a test1 very");
+		string result = b->Action("a test1 very", ' ');
 		/*c->Action("very");
 		c->Action("long");
 		c->Action("string test2 ");
@@ -63,11 +63,11 @@ public:
 	// 	
 	void GetFinalResultTest() {
 		ArgumentB *b = new ArgumentB;
-		b->Action("a test1 very");
-		b->Action("very");
-		b->Action("long");
-		b->Action("string test2 +_)");
-		b->Action("(_+");
+		b->Action("a test1 very", ' ');
+		b->Action("very", ' ');
+		b->Action("long", ' ');
+		b->Action("string test2 +_)", ' ');
+		b->Action("(_+", ' ');
 
 		string result = b->GetFinalResult();
 		assert(result == "");
