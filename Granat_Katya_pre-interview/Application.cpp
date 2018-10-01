@@ -14,6 +14,7 @@ void Application:: Execute() {
 	char buffer[10];
 
 	file->OpenInFile(_fileName);
+	file->OpenOutFile();
 	if (file->GetFile() == NULL) perror("Ошибка открытия файла");
 	else
 	{

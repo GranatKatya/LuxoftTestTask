@@ -8,14 +8,14 @@ public:
 	void SetGetIProcessorsTest() {
 		Factory * factory = new Factory;
 
-		IProcessor &result = factory->SetGetIProcessors('-a',' ');
+		IProcessor &result = factory->SetGetIProcessors('a',' ');
 		assert(typeid(result) == typeid (ArgumentA));
 
-		result = factory->SetGetIProcessors('-b', ' ');
-		assert(typeid(result) == typeid (ArgumentB));
+		IProcessor &result1 = factory->SetGetIProcessors('b', ' ');
+		assert(typeid(result1) == typeid (ArgumentB));
 
-		result = factory->SetGetIProcessors('-c', 'a');
-		assert(typeid(result) == typeid (ArgumentC));
+		IProcessor &result2 = factory->SetGetIProcessors('c', 'a');
+		assert(typeid(result2) == typeid (ArgumentC));
 
 	}
 };

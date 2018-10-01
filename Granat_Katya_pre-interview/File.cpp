@@ -8,10 +8,6 @@ FILE * FileReaderWritter::GetFileToWrite() {
 	return _fout;
 }
 
-FileReaderWritter::FileReaderWritter() {
-	//OpenInFile(_name);
-	OpenOutFile();
-}
 
 string FileReaderWritter::Read() {
 

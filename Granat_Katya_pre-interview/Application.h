@@ -12,6 +12,9 @@ class Application {
 
 
 public:
+	FileReaderWritter *GetFile() {
+		return file;
+	}
 	Application(char processorType, char processorArgument, string _fileName);
 	Application() {}
 	void Execute();

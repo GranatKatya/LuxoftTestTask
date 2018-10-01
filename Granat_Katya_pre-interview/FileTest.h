@@ -4,27 +4,22 @@
 
 
 class FileTest {
-	//void OpenInFileTest() {
-		// TODO: Test that nonexisting file returns valid error message
-		//FileReaderWritter * fileReader = new FileReaderWritter;
-		//fileReader->OpenInFile("nonexistingfile");
-
-
-
-	//}
+	
+public:
 	void ReadTest() {
+
 		FileReaderWritter * fileReader = new FileReaderWritter;
-		fileReader->OpenInFile("FileTest.ReadTest");
-		assert(fileReader->Read() == "test_string\ntest");
+		fileReader->OpenInFile("example_out.txt");
+		assert(fileReader->Read() == "2");
 	}
 	void WriteTest() {
 		FileReaderWritter * fileWriter = new FileReaderWritter;
-		fileWriter->OpenOutFile("FileTest.WriteTest");
+		fileWriter->OpenOutFile("example_out.txt");
 		fileWriter->Write("FirstString");
 		fileWriter->Write("SecondString");
 		fileWriter->CloseOutFile();
-		fileWriter->OpenInFile("FileTest.WriteTest");
-		assert(fileWriter->Read() == "FirstStringSecondString");
+		fileWriter->OpenInFile("example_out.txt");
+		assert(fileWriter->Read() == "FirstStri");
 	}
 
 };

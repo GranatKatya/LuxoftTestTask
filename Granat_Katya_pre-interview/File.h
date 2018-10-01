@@ -11,7 +11,7 @@ public:
 	FILE * GetFile();
 	FILE * GetFileToWrite();
 
-	FileReaderWritter();
+//	FileReaderWritter();
 
 	string Read();
 

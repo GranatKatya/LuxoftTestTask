@@ -5,33 +5,50 @@
 class ApplicationTest {
 
 public:
-	/*void ApplicationConstructorTest() {
-		Application app =  Application('a','b');
 
-		app.
 
-	}*/
-
-	void ExecuteTest() 
+	void ExecuteTestA()
 	{
-		char ch = '-a';
-		Application app = Application(ch, 'b');
-		app.Execute();//C
+		Application *app = new Application('a', ' ', "ApplicationTest5ExecuteTest.txt");
+		app->Execute();//C
+		//delete app;
+		app->GetFile()->CloseOutFile();
+
+		//CloseInFile();
 		FileReaderWritter * fileReader = new FileReaderWritter;
 		fileReader->OpenInFile("example_out.txt");
+		//cout <<endl<< fileReader->Read();
 
-		if (ch == '-a') {
-			
-			assert(fileReader->Read() == "а атака ббб в вова г к кат€ старопортофранковска€улицаодессыдочтаточнобольша€");
-
-		}
-		else if (ch == '-b') {
-			assert(fileReader->Read() == "бббвагккат€вовастаропортофранковска€улицаодессыдочтаточнобольша€\\n\
-атака");
-		}
-		else if (ch == '-c') {
-			assert(fileReader->Read() == "23");
-		}
+		assert(fileReader->Read() == "a bb s");// б в вова г к кат€ старопортофранковска€улицаодессыдочтаточнобольша€");
 
 	}
+	void ExecuteTestB()
+	{
+
+		Application *app = new Application('b', ' ', "ApplicationTest5ExecuteTest.txt");
+		app->Execute();
+		app->GetFile()->CloseOutFile();
+
+		FileReaderWritter * fileReader = new FileReaderWritter;
+		fileReader->OpenInFile("example_out.txt");
+		//cout <<endl<< fileReader->Read();
+
+		assert(fileReader->Read() == "bbsa");// б в вова г к кат€ старопортофранковска€улицаодессыдочтаточнобольша€");
+
+	}
+	void ExecuteTestC()
+	{
+
+		Application *app = new Application('c', 'b', "ApplicationTest5ExecuteTest.txt");
+		app->Execute();
+		app->GetFile()->CloseOutFile();
+
+		FileReaderWritter * fileReader = new FileReaderWritter;
+		fileReader->OpenInFile("example_out.txt");
+		//cout <<endl<< fileReader->Read();
+
+		assert(fileReader->Read() == "2");// б в вова г к кат€ старопортофранковска€улицаодессыдочтаточнобольша€");
+
+	}
+
 };
