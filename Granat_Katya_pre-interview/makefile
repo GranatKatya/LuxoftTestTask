@@ -1,5 +1,12 @@
 install: workwithfile.o Application.o Factory.o File.o IProcessor.o stdafx.o
-	g++ workwithfile.o Application.o Factory.o File.o IProcessor.o stdafx.o
+	g++ workwithfile.o Application.o Factory.o File.o IProcessor.o stdafx.o -o workwithfile
+
+test: workwithfileTest.o Application.o Factory.o File.o IProcessor.o stdafx.o
+	g++ workwithfileTest.o Application.o Factory.o File.o IProcessor.o stdafx.o -o tests
+	./tests
+
+workwithfileTest.o: workwithfileTest.cpp
+	g++ -c workwithfileTest.cpp
 
 workwithfile.o: workwithfile.cpp
 	g++ -c workwithfile.cpp
@@ -20,4 +27,5 @@ stdafx.o: stdafx.cpp stdafx.h
 	g++ -c stdafx.cpp
 
 clean:
-	rm *.o output
+	rm *.o tests workwithfile | true
+

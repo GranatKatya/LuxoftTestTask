@@ -11,10 +11,10 @@ FILE * FileReaderWritter::GetFileToWrite() {
 
 string FileReaderWritter::Read() {
 
-	char buff[10]; // буфер промежуточного хранения считываемого из файла текста
+	char buff[10];
 	fgets(buff, 10, _fin);
 
-	cout << buff << endl; // напечатали эту строку
+	cout << buff << endl;
 	string str(buff);
 	return str;
 }

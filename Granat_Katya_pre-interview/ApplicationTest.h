@@ -17,9 +17,7 @@ public:
 		//CloseInFile();
 		FileReaderWritter * fileReader = new FileReaderWritter;
 		fileReader->OpenInFile("example_out.txt");
-		//cout <<endl<< fileReader->Read();
-
-		assert(fileReader->Read() == "a bb s");// б в вова г к кат€ старопортофранковска€улицаодессыдочтаточнобольша€");
+		assert(fileReader->Read() == "a bb s");
 
 	}
 	void ExecuteTestB()
@@ -33,7 +31,7 @@ public:
 		fileReader->OpenInFile("example_out.txt");
 		//cout <<endl<< fileReader->Read();
 
-		assert(fileReader->Read() == "bbsa");// б в вова г к кат€ старопортофранковска€улицаодессыдочтаточнобольша€");
+		assert(fileReader->Read() == "bbsa");
 
 	}
 	void ExecuteTestC()
@@ -45,9 +43,8 @@ public:
 
 		FileReaderWritter * fileReader = new FileReaderWritter;
 		fileReader->OpenInFile("example_out.txt");
-		//cout <<endl<< fileReader->Read();
 
-		assert(fileReader->Read() == "2");// б в вова г к кат€ старопортофранковска€улицаодессыдочтаточнобольша€");
+		assert(fileReader->Read() == "2");
 
 	}
 

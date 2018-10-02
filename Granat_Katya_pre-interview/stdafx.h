@@ -11,6 +11,7 @@
 #include <iostream>
 #include <cstring>
 #include <string>
+#include <typeinfo>
 //#include <fstream>
 //#include <iomanip>
 

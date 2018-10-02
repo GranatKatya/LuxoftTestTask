@@ -5,7 +5,7 @@
 #include "FileTest.h" 
 #include "IProcessorsTests.h" 
 
-int main1(int argc, char* argv[]) {
+int main(int argc, char* argv[]) {
 
 	setlocale(LC_ALL, "rus"); // корректное отображение Кириллицы
 	
