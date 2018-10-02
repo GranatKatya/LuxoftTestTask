@@ -5,28 +5,26 @@
 
 #pragma once
 
-#include "targetver.h"
+#include "stdio.h"
+//#include <tchar>
 
-#include <stdio.h>
-#include <tchar.h>
-
-//#include <iostrem>
-#include<string.h>
-//#include <iostream>
+#include <iostream>
+#include <cstring>
+#include <string>
 //#include <fstream>
 //#include <iomanip>
 
-//#include <algorithm.h>
-//#include <vector>
+#include <algorithm>
+#include <vector>
 
 using namespace std;
 
 
 #include "IProcessor.h"
-#include "File.h.txt"
-#include "Factory.h.txt"
-#include "Application.h.txt"
-#include "IProcessorsTests.h.txt"
+#include "File.h"
+#include "Factory.h"
+#include "Application.h"
+#include "IProcessorsTests.h"
 
 
 // TODO: reference additional headers your program requires here

@@ -2,6 +2,7 @@
 Granat_Katya_pre-interview/Debug/**
 **/*TLOG
 **/*OBJ
+**/*.o
 Debug/**
 Granat_Katya_pre-interview.sln
 example_out.txt

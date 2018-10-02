@@ -1,15 +1,12 @@
 #pragma once
 
-//#include "stdafx.h"
+#include "stdafx.h"
 
 //interface
 class IProcessor {
 protected:
-	string intermediateResult;
-	//string finalResult;
-	
-//	FileReaderWritter * _file;
-	string leftover;
+	std::string intermediateResult;
+	std::string leftover;
 	
 public:
 
