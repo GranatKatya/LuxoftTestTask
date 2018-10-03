@@ -28,6 +28,15 @@ public:
 	virtual string Action(string str, char ch );
 	virtual string GetFinalResult();
 
+	bool IsUnique(string str) {
+		for (size_t i = 0; i < sortWords.size(); i++)
+		{
+			if (sortWords[i] == str) {
+				return false;
+			}
+		}
+		return true;
+	}
 };
 
 class ArgumentB : public IProcessor {

@@ -47,6 +47,19 @@ public:
 		cout << "[Test]: ArgumentATest::GetFinalResultTest FINISH" << endl;
 	}
 
+	void IsEqual() {
+		ArgumentA *a = new ArgumentA;
+		a->Action("a test1 very", ' ');
+		a->Action("very", ' ');
+		a->Action("long", ' ');
+		a->Action("aaaa aaaa test", ' ');
+		a->Action("very", ' ');
+		a->Action("very", ' ');
+		a->Action("long", ' ');
+
+		assert(a->IsUnique("long"));
+	}
+
 
 };
 
