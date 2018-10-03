@@ -42,6 +42,19 @@ public:
 		assert("+_)(_+ a test1 test2 veryverylongstring" == result);
 	}
 
+	void IsEqual() {
+		ArgumentA *a = new ArgumentA;
+		a->Action("a test1 very", ' ');
+		a->Action("very", ' ');
+		a->Action("long", ' ');
+		a->Action("aaaa aaaa test", ' ');
+		a->Action("very", ' ');
+		a->Action("very", ' ');
+		a->Action("long", ' ');
+
+		assert(a->IsUnique("long"));
+	}
+
 
 };
 
@@ -53,7 +66,9 @@ public:
 		ArgumentB *b = new ArgumentB;
 		string result = b->Action("a test1 very", ' ');
 		
+		//cout << "00000000000" << endl;
 		assert(result ==  "atest1very");
+		//cout << "00000000000" << endl;
 	}
 	// 	
 	void GetFinalResultTest() {

@@ -26,6 +26,7 @@ int main(int argc, char* argv[]) {
 	at.actionTest();
 	at.addToContainerTest();
 	at.GetFinalResultTest();
+	at.IsEqual();
 
 	ArgumentBTest bt = ArgumentBTest();
 	bt.actionTest();

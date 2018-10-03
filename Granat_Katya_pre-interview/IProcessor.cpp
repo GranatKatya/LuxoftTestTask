@@ -30,7 +30,9 @@ void ArgumentA::addToContainer(string str) {
 			leftover = "";
 			str = str.substr(it - str.begin() + 1, 10000);// cut 
 			if (word != "") {
-				addToContainer(word);
+				if (IsUnique(word)) {
+					addToContainer(word);
+				}
 			}
 		}
 		else {
@@ -43,7 +45,9 @@ void ArgumentA::addToContainer(string str) {
 
  string ArgumentA::GetFinalResult() {
 	if (leftover != "") {
-		addToContainer(leftover);
+		if (IsUnique(leftover)) {
+			addToContainer(leftover);
+		}
 	}
 
 	string result = sortWords[0];
@@ -85,7 +89,7 @@ void ArgumentA::addToContainer(string str) {
 		  }
 	  }
 
-	  cout << count << endl;
+	 // cout << count << endl;
 	 
 	  return "";
   }
