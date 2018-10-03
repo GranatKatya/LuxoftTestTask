@@ -38,7 +38,7 @@ void Parse(int argc, char* argv[], char &processorType,
 	char &processorArgument) {
 
 	for (int i = 2; i < argc; i++) {
-		cout << argv[i] << endl;
+		//cout << argv[i] << endl;
 		if (string(argv[i]) == "-a") {
 			processorType = 'a';
 			processorArgument = ' ';

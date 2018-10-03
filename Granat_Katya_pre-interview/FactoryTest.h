@@ -10,6 +10,7 @@ public:
 
 		IProcessor &result = factory->SetGetIProcessors('a',' ');
 		assert(typeid(result) == typeid (ArgumentA));
+		//cout << "	WWW" << endl;
 
 		IProcessor &result1 = factory->SetGetIProcessors('b', ' ');
 		assert(typeid(result1) == typeid (ArgumentB));

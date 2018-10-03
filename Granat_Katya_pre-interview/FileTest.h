@@ -10,7 +10,7 @@ public:
 
 		FileReaderWritter * fileReader = new FileReaderWritter;
 		fileReader->OpenInFile("example_out.txt");
-		assert(fileReader->Read() == "2");
+		assert(fileReader->Read() == "1");
 	}
 	void WriteTest() {
 		FileReaderWritter * fileWriter = new FileReaderWritter;
@@ -20,6 +20,7 @@ public:
 		fileWriter->CloseOutFile();
 		fileWriter->OpenInFile("example_out.txt");
 		assert(fileWriter->Read() == "FirstStri");
+	//	cout << "	WWW" << endl;
 	}
 
 };

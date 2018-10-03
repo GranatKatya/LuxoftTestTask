@@ -11,7 +11,7 @@ Application::Application(char processorType, char processorArgument, string file
 void Application:: Execute() {
 
 	iprocessor = &factory.SetGetIProcessors(_processorType, _processorArgument);
-	char buffer[10];
+	//char buffer[100];
 
 	file->OpenInFile(_fileName);
 	file->OpenOutFile();

@@ -91,6 +91,7 @@ public:
 		c->Action("(_+", 'a');
 
 		assert(c->GetFinalResult() == "1");
+		//cout << "	WWW" << endl;
 	}
 
 };

@@ -17,7 +17,11 @@ public:
 		//CloseInFile();
 		FileReaderWritter * fileReader = new FileReaderWritter;
 		fileReader->OpenInFile("example_out.txt");
-		assert(fileReader->Read() == "a bb s");
+		string test = fileReader->Read();
+		//cout << "ExecuteTestA: Comparing " << test  << endl;
+		assert(test == "a aaaaaaa");
+		//if (test == "a aaaaaaa") { cout << " strings is equal" << endl; }
+
 
 	}
 	void ExecuteTestB()
@@ -31,20 +35,21 @@ public:
 		fileReader->OpenInFile("example_out.txt");
 		//cout <<endl<< fileReader->Read();
 
-		assert(fileReader->Read() == "bbsa");
+		assert(fileReader->Read() == "bbsaaaaaa");// б в вова г к кат€ старопортофранковска€улицаодессыдочтаточнобольша€");
 
 	}
 	void ExecuteTestC()
 	{
 
-		Application *app = new Application('c', 'b', "ApplicationTest5ExecuteTest.txt");
+		Application *app = new Application('c', 's', "ApplicationTest5ExecuteTest.txt");
 		app->Execute();
 		app->GetFile()->CloseOutFile();
 
 		FileReaderWritter * fileReader = new FileReaderWritter;
 		fileReader->OpenInFile("example_out.txt");
+		//cout <<endl<< fileReader->Read();
 
-		assert(fileReader->Read() == "2");
+		assert(fileReader->Read() == "1");// б в вова г к кат€ старопортофранковска€улицаодессыдочтаточнобольша€");
 
 	}
 
