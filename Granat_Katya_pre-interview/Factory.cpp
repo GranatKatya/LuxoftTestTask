@@ -1,6 +1,8 @@
 
 #include "stdafx.h"
 
+extern int debug;
+
 IProcessor& Factory::SetGetIProcessors(char _processorType, char _processorArgumet) {
 
 	if (_processorType == 'a') {  return *new ArgumentA; }

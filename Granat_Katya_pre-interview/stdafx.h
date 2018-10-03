@@ -27,5 +27,4 @@ using namespace std;
 #include "Application.h"
 #include "IProcessorsTests.h"
 
-
 // TODO: reference additional headers your program requires here

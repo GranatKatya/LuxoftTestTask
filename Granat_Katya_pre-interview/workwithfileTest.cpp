@@ -5,9 +5,11 @@
 #include "FileTest.h" 
 #include "IProcessorsTests.h" 
 
+int debug = 1;
 int main(int argc, char* argv[]) {
+	debug=1;
 
-	setlocale(LC_ALL, "rus"); // корректное отображение Кириллицы
+	setlocale(LC_ALL, "rus");
 	
 	ApplicationTest app = ApplicationTest();
 	app.ExecuteTestA();

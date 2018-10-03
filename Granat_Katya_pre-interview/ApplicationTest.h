@@ -9,47 +9,47 @@ public:
 
 	void ExecuteTestA()
 	{
+		cout << "[Test]: ApplicationTest::ExecuteTestA START" << endl;
 		Application *app = new Application('a', ' ', "ApplicationTest5ExecuteTest.txt");
-		app->Execute();//C
-		//delete app;
+		app->Execute();
 		app->GetFile()->CloseOutFile();
 
-		//CloseInFile();
 		FileReaderWritter * fileReader = new FileReaderWritter;
 		fileReader->OpenInFile("example_out.txt");
 		string test = fileReader->Read();
-		//cout << "ExecuteTestA: Comparing " << test  << endl;
 		assert(test == "a aaaaaaa");
-		//if (test == "a aaaaaaa") { cout << " strings is equal" << endl; }
+		cout << "[Test]: ApplicationTest::ExecuteTestA FINISH" << endl;
 
 
 	}
 	void ExecuteTestB()
 	{
 
+		cout << "[Test]: ApplicationTest::ExecuteTestB START" << endl;
 		Application *app = new Application('b', ' ', "ApplicationTest5ExecuteTest.txt");
 		app->Execute();
 		app->GetFile()->CloseOutFile();
 
 		FileReaderWritter * fileReader = new FileReaderWritter;
 		fileReader->OpenInFile("example_out.txt");
-		//cout <<endl<< fileReader->Read();
 
-		assert(fileReader->Read() == "bbsaaaaaa");// б в вова г к кат€ старопортофранковска€улицаодессыдочтаточнобольша€");
+		assert(fileReader->Read() == "bbsaaaaaa");
+		cout << "[Test]: ApplicationTest::ExecuteTestB FINISH" << endl;
 
 	}
 	void ExecuteTestC()
 	{
 
+		cout << "[Test]: ApplicationTest::ExecuteTestC START" << endl;
 		Application *app = new Application('c', 's', "ApplicationTest5ExecuteTest.txt");
 		app->Execute();
 		app->GetFile()->CloseOutFile();
 
 		FileReaderWritter * fileReader = new FileReaderWritter;
 		fileReader->OpenInFile("example_out.txt");
-		//cout <<endl<< fileReader->Read();
 
-		assert(fileReader->Read() == "1");// б в вова г к кат€ старопортофранковска€улицаодессыдочтаточнобольша€");
+		assert(fileReader->Read() == "1");
+		cout << "[Test]: ApplicationTest::ExecuteTestC FINISH" << endl;
 
 	}
 

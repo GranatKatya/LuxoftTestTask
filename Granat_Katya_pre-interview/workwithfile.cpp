@@ -3,17 +3,22 @@
 
 #include "stdafx.h"
 
+int debug = 0;
+
 void printHelp();
 void Parse(int argc, char* argv[], char &processorType,char &processorArgument);
 	
 int main(int argc, char* argv[]) {
-	setlocale(LC_ALL, "rus"); // корректное отображение Кириллицы
+	setlocale(LC_ALL, "rus");
 	
 	char processorType;
 	char processorArgument;
 	
 	Parse(argc, argv, processorType, processorArgument);
 
+        if (debug == 1) {
+		cout << "main: Arguments parsed" << endl;
+	}
 	Application a(processorType,processorArgument, argv[1]);
 	
 	a.Execute();
@@ -21,24 +26,26 @@ int main(int argc, char* argv[]) {
 	return 0;	
 }
 
-
-
-
-
-
-
-
-
-
-int debug = 0;
 void printHelp() {
-	cout << "file_processor " << endl;
+	cout << "workwithfile - Process file content and put result to example_out.txt" << endl;
+	cout << "Usage: workwithfile [<file>] {-a|-b|-c <character>|-h|--help} [-d|--debug]" << endl;
+	cout << "	<file>			Input file to parse" << endl;
+	cout << "	-a			Get all unique words in file (word separators are space and newline) sorted in alphabetic order" << endl;
+	cout << "	-b			Remove all spaces from file" << endl;
+	cout << "	-c <character>		Count occurances of <character> in file" << endl;
+	cout << "	-d | --debug		Enable debug logging" << endl;
+	cout << "	-h | --help		Print this help message and exit" << endl;
 }
 void Parse(int argc, char* argv[], char &processorType,
 	char &processorArgument) {
 
+	for (int i = 1; i < argc; i++) {
+		if (string(argv[i]) == "-h" || string(argv[i]) == "--help") {
+			printHelp();
+			exit(0);
+		}
+	}
 	for (int i = 2; i < argc; i++) {
-		//cout << argv[i] << endl;
 		if (string(argv[i]) == "-a") {
 			processorType = 'a';
 			processorArgument = ' ';
@@ -49,102 +56,23 @@ void Parse(int argc, char* argv[], char &processorType,
 		}
 		else if (string(argv[i]) == "-c") {
 			processorType = 'c';
-			if (strlen(argv[i + 1]) == 1) {
-				processorArgument = *argv[i + 1];
-				break;
-				//string.pop(argv[i+1]);
+			if (i + 1 < argc && strlen(argv[i + 1]) == 1) {
+				processorArgument = *argv[i+1];
+				i++;
 			}
 			else {
-				cout << "error: key -c takes one character argument" << endl;
+				cout << "error: key -c requires one character argument" << endl;
 				printHelp();
 				exit(1);
 			}
 		}
-		else if (string(argv[i]) == "-d") {
+		else if (string(argv[i]) == "-d" || string(argv[i]) == "--debug") {
 			debug = 1;
 		}
-		else if (string(argv[i]) == "-h" || string(argv[i]) == "--help") {
-			printHelp();
-			exit(0);
-		}
 		else {
-			cout << "error: wrong arguments passed" << endl;
+			cout << "error: wrong argument passed" << argv[i] << endl;
 			printHelp();
 			exit(1);
 		}
 	}
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//
-//#include <stdio.h>
-//
-//int main(int argc, char **argv) {
-//	int i;
-//
-//	printf("%d\n", argc);
-//
-//	for (i = 0; i < argc; i++)
-//		puts(argv[i]);
-//}
-
-
-#include <stdio.h>
-#include <string.h>
-//
-//main(int argc, char **argv) {
-//	int i, ch;
-//	FILE *f[5];
-//
-//	if (argc < 3 || argc > 7) {
-//		puts("Неверное количество параметров");
-//		return 1;
-//	}
-//
-//	if (strcmp(argv[1], "-w") != 0 && strcmp(argv[1], "-a") != 0) {
-//		puts("Первый параметр может быть либо -w, либо -a");
-//		return 2;
-//	}
-//
-//	for (i = 0; i < argc - 2; i++) {
-//		f[i] = fopen(argv[i + 2], argv[1] + 1);
-//		if (f[i] == NULL) {
-//			printf("Файл %s нельзя открыть\n", argv[i + 2]);
-//			return 3;
-//		}
-//	}
-//
-//	while ((ch = getchar()) != EOF)
-//		for (i = 0; i < argc - 2; i++)
-//			putc(ch, f[i]);
-//
-//	for (i = 0; i < argc - 2; i++)
-//		fclose(f[i]);
-//
-//	return 0;
-//}

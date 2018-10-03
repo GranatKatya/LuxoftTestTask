@@ -6,6 +6,7 @@ class FactoryTeat {
 
 public:
 	void SetGetIProcessorsTest() {
+		cout << "[Test]: FactoryTest::SetGetIProcessorTest START" << endl;
 		Factory * factory = new Factory;
 
 		IProcessor &result = factory->SetGetIProcessors('a',' ');
@@ -17,6 +18,7 @@ public:
 
 		IProcessor &result2 = factory->SetGetIProcessors('c', 'a');
 		assert(typeid(result2) == typeid (ArgumentC));
+		cout << "[Test]: FactoryTest::SetGetIProcessorTest FINISH" << endl;
 
 	}
 };

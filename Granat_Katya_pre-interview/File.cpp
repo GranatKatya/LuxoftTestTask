@@ -14,13 +14,8 @@ string FileReaderWritter::Read() {
 	char buff[10];
 	fgets(buff, 10, _fin);
 
-	//cout << buff << endl;
 	string str(buff);
-	//cout << "1111"<< str << endl;
-	//assert(str == " ");
-//	if (str == "a aaaaaaa") { cout << " strings is equal" << endl; }
-//	else { cout << " not equal" << endl; }
-		return str;
+	return str;
 }
 
 

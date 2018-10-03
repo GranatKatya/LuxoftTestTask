@@ -1,19 +1,29 @@
 
 #include "stdafx.h"
 
+extern int debug;
 
 void ArgumentA::addToContainer(string str) {
 
-	//string s;
+
+        if (debug == 1) {
+		cout << "ArgumentA::addToContainer: Searching for position to insert" << endl;
+	}
 	vector<string>::iterator it = sortWords.begin();
 	for (int i = 0; i < sortWords.size(); i++) {
 		if (strcmp(str.c_str(), sortWords[i].c_str()) < 0) {
 			
 			sortWords.insert(it + i, str);
+        		if (debug == 1) {
+				cout << "ArgumentA::addToContainer: Inserted at position " << i << endl;
+			}
 			return;
 		}
 	}
 	sortWords.push_back(str);
+        if (debug == 1) {
+		cout << "ArgumentA::addToContainer: Inserted at position " << sortWords.size() - 1 << endl;
+	}
 }
  string ArgumentA::Action(string str, char ch = ' ') {
 
@@ -51,6 +61,9 @@ void ArgumentA::addToContainer(string str) {
 	for (int i = 1; i < sortWords.size(); i++) {
 		result = result.append(" ").append(sortWords[i]);
 	}
+        if (debug == 1) {
+		cout << "ArgumentA::GetFinalResult: Returned String: " << result << endl;
+	}
 
 	return result;
 }
@@ -59,33 +72,34 @@ void ArgumentA::addToContainer(string str) {
 
 
 
- //
+string ArgumentB::GetFinalResult() { return ""; }
+string ArgumentB::Action(string str, char ch = ' ') {
+
+	str.erase(remove(str.begin(), str.end(), ' '), str.end());
+	if (debug == 1) {
+		cout << "ArgumentB::Action: Returned String: " << str << endl;
+	}
+	return str;
+}
 
 
-  string ArgumentB::GetFinalResult() { return ""; }
-  string ArgumentB::Action(string str, char ch = ' ') {
+//
 
-	  str.erase(remove(str.begin(), str.end(), ' '), str.end());
-	  return str;
-  }
-
-
-  //
-
-   string ArgumentC::GetFinalResult() {
+ string ArgumentC::GetFinalResult() {
 	  return to_string(count);
 	  //return finalResult;
-  }
+}
 
-   string ArgumentC::Action(string str, char ch) {
+string ArgumentC::Action(string str, char ch) {
 
-	  for (int i = 0; i < str.size(); i++) {
-		  if (str[i] == ch) {
-			  count++;
-		  }
-	  }
+	for (int i = 0; i < str.size(); i++) {
+		if (str[i] == ch) {
+			count++;
+		}
+	}
+	if (debug == 1) {
+		cout << "ArgumentC::Action: Count is: " << count << endl;
+	}
 
-	  cout << count << endl;
-	 
-	  return "";
-  }
+	return "";
+}
